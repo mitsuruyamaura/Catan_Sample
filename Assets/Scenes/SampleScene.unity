@@ -1220,7 +1220,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.73255646, g: 0.836478, b: 0.6707606, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1288,7 +1288,7 @@ GameObject:
   - component: {fileID: 679530441}
   - component: {fileID: 679530442}
   m_Layer: 0
-  m_Name: Tilemap
+  m_Name: "Tilemap(\u30BF\u30A4\u30EB\u5143\u306E Texute \u306E PixelPer \u306F200)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1807,7 +1807,7 @@ GameObject:
   - component: {fileID: 1313514298}
   - component: {fileID: 1313514299}
   m_Layer: 0
-  m_Name: Grid
+  m_Name: "Grid(Cell Size 1.28 \u3067\u30D4\u30C3\u30BF\u30EA\u304F\u3063\u3064\u304F\u3002\u8857\u9053\u3088\u3046\u306B\u3001\u5C11\u3057\u30B5\u30A4\u30BA\u3092\u4E0A\u3052\u3066\u3044\u308B)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1822,7 +1822,7 @@ Transform:
   m_GameObject: {fileID: 1313514297}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.5, y: -2.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1837,7 +1837,7 @@ Grid:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1313514297}
   m_Enabled: 1
-  m_CellSize: {x: 1.28, y: 1.28, z: 1}
+  m_CellSize: {x: 1.5, y: 1.5, z: 1}
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 1
   m_CellSwizzle: 0
@@ -1873,9 +1873,11 @@ MonoBehaviour:
   stageSize: 5
   tilemap: {fileID: 679530441}
   hexTileList: []
-  settlements: []
   hexCornerList: []
+  settlementList: []
   hexTileDataSO: {fileID: 11400000, guid: 2529e2da6277e4741a867edba5bc236f, type: 2}
+  tileInfoList: []
+  isCatanStructure: 1
 --- !u!4 &2088111329
 Transform:
   m_ObjectHideFlags: 0
