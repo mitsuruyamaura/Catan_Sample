@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b38de252622db14bb3f5b0f465758ef, type: 3}
+  m_Name: HexTileDataSO
+  m_EditorClassIdentifier: 
+  hexTileDataList:
+  - tileType: 0
+    tile: {fileID: 11400000, guid: 182df24406406504d96fd419ded9042d, type: 2}
+  - tileType: 1
+    tile: {fileID: 11400000, guid: 84e84aa919eea2c4fb28775a462a4a78, type: 2}
+  - tileType: 2
+    tile: {fileID: 11400000, guid: 7d6e2058ec5d3b840b7539ef412b33d8, type: 2}
+  - tileType: 3
+    tile: {fileID: 11400000, guid: 5ed4c3ad26bf020469db3c5da18dbc39, type: 2}
+  - tileType: 4
+    tile: {fileID: 11400000, guid: 63e384860d8caf14ca1a0e027146faf5, type: 2}
+  - tileType: 5
+    tile: {fileID: 11400000, guid: 757b3e6c1534f8b41a891d7c93367f8c, type: 2}
+  - tileType: 6
+    tile: {fileID: 11400000, guid: 887683f9a08f4f6478c95588b5a3dfa2, type: 2}
