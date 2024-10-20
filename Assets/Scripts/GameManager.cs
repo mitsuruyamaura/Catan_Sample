@@ -1,7 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
+using UniRx;
+using UniRx.Triggers;
 
 /// <summary>
 /// タイルマップ情報管理用
@@ -27,6 +30,7 @@ public class GameManager : MonoBehaviour {
 
     private int minDiceNum = 2;
     private int maxDiceNum = 13;
+    private string sampleSceneName = "SampleScene";
 
     // 全タイルを格納するDictionary。ここの Vector3Int は配置用の2D座標
     private Dictionary<Vector3Int, HexTile> tileMapDic = new();
@@ -45,6 +49,7 @@ public class GameManager : MonoBehaviour {
     // カタン情報
     // 交差点数 24
     // 街道数 14 + 28 = 42本
+    // タイルの種類は別途登録して、使ったものから省いていくようにする
 
 
     void Start() {
@@ -58,6 +63,11 @@ public class GameManager : MonoBehaviour {
 
         // 隣接タイルの管理用 List 作成
         CreateHexCornerList();
+
+        this.UpdateAsObservable()
+            .Where(_ => Input.GetKeyDown(KeyCode.Space))
+            .ThrottleFirst(System.TimeSpan.FromSeconds(1.0f))
+            .Subscribe(_ => ReloadScene());
     }
 
     /// <summary>
@@ -203,6 +213,9 @@ public class GameManager : MonoBehaviour {
         return adjacentTiles;
     }
 
+    public void ReloadScene() {
+        SceneManager.LoadScene(sampleSceneName);
+    }
 
     /// <summary>
     /// 拠点追加

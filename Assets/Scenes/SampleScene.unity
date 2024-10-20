@@ -1220,7 +1220,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.73255646, g: 0.836478, b: 0.6707606, a: 0}
+  m_BackGroundColor: {r: 0.81446534, g: 1, b: 0.87691146, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1807,7 +1807,7 @@ GameObject:
   - component: {fileID: 1313514298}
   - component: {fileID: 1313514299}
   m_Layer: 0
-  m_Name: "Grid(Cell Size 1.28 \u3067\u30D4\u30C3\u30BF\u30EA\u304F\u3063\u3064\u304F\u3002\u8857\u9053\u3088\u3046\u306B\u3001\u5C11\u3057\u30B5\u30A4\u30BA\u3092\u4E0A\u3052\u3066\u3044\u308B)"
+  m_Name: "Grid(Cell Size 1.28 \u3067\u30D4\u30C3\u30BF\u30EA\u304F\u3063\u3064\u304F\u3002\u8857\u9053\u7528\u306B\u3001\u5C11\u3057\u30B5\u30A4\u30BA\u3092\u4E0A\u3052\u3066\u3044\u308B)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1877,7 +1877,7 @@ MonoBehaviour:
   settlementList: []
   hexTileDataSO: {fileID: 11400000, guid: 2529e2da6277e4741a867edba5bc236f, type: 2}
   tileInfoList: []
-  isCatanStructure: 1
+  isCatanMapStructure: 1
 --- !u!4 &2088111329
 Transform:
   m_ObjectHideFlags: 0
