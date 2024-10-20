@@ -3,6 +3,9 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+/// <summary>
+/// タイルマップ情報管理用
+/// </summary>
 [System.Serializable]
 public class TileInfo {
     public Vector3Int axialPos;  // 2D軸座標
@@ -20,6 +23,7 @@ public class GameManager : MonoBehaviour {
 
     // デバッグ用
     [SerializeField] private List<TileInfo> tileInfoList = new();    // 配置された座標とその座標にある HexTile の情報のリスト
+    [SerializeField] private bool isCatanMapStructure;
 
     private int minDiceNum = 2;
     private int maxDiceNum = 13;
@@ -38,8 +42,23 @@ public class GameManager : MonoBehaviour {
         new (0, -1, 1)   // 上   12時
     };
 
+    // カタン情報
     // 交差点数 24
     // 街道数 14 + 28 = 42本
+
+
+    void Start() {
+        // カタンの形状のマップにするか判定
+        if (isCatanMapStructure) {
+            CreateCatanMap();
+        } else {
+            // 座標を計算し、タイルマップ内のその位置にタイルを配置
+            CreateHexGrid(stageSize);
+        }
+
+        // 隣接タイルの管理用 List 作成
+        CreateHexCornerList();
+    }
 
     /// <summary>
     /// カタンの形状のマップ生成
@@ -66,17 +85,6 @@ public class GameManager : MonoBehaviour {
                 CreateHexTile(hexPos, 0);
             }
         }
-    }
-
-
-    void Start() {
-        CreateCatanMap();
-
-        // 座標を計算し、タイルマップ内のその位置にタイルを配置
-        //CreateHexGrid(stageSize);
-
-        // 隣接タイルの管理用 List 作成
-        CreateHexCornerList();
     }
 
     /// <summary>
@@ -156,20 +164,6 @@ public class GameManager : MonoBehaviour {
         return new Vector3(q, r, 0); // 実際の2D空間での座標に変換
     }
 
-    private HexTile GetTileAt(Vector3Int cubePosition) {
-        return hexTileList.FirstOrDefault(tile => tile.cubePosition == cubePosition);
-    }
-
-    // 拠点を追加するメソッド
-    public void AddSettlement(Settlement settlement) {
-        settlementList.Add(settlement);
-    }
-
-    // キューブ座標を渡して拠点を取得するメソッド
-    public Settlement GetSettlementAt(Vector3Int cubePosition) {
-        return settlementList.Find(settlement => settlement.cubeCoordinates == cubePosition);
-    }
-
     /// <summary>
     /// 隣接タイルの管理用 List 作成
     /// </summary>
@@ -207,5 +201,32 @@ public class GameManager : MonoBehaviour {
             }
         }
         return adjacentTiles;
+    }
+
+
+    /// <summary>
+    /// 拠点追加
+    /// </summary>
+    /// <param name="settlement"></param>
+    public void AddSettlement(Settlement settlement) {
+        settlementList.Add(settlement);
+    }
+
+    /// <summary>
+    /// キューブ座標から HexTile を取得
+    /// </summary>
+    /// <param name="cubePosition"></param>
+    /// <returns></returns>
+    private HexTile GetTileAt(Vector3Int cubePosition) {
+        return hexTileList.FirstOrDefault(tile => tile.cubePosition == cubePosition);
+    }
+
+    /// <summary>
+    /// キューブ座標から拠点を取得
+    /// </summary>
+    /// <param name="cubePosition"></param>
+    /// <returns></returns>
+    public Settlement GetSettlementAt(Vector3Int cubePosition) {
+        return settlementList.Find(settlement => settlement.cubeCoordinates == cubePosition);
     }
 }
